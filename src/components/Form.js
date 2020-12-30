@@ -1,15 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 function Form(props) {
   const [input, setInput] = useState('')
 
+  // focus on input, prevent re-rendering of entire component on changes
+  const inputRef = useRef(null)
+  
+  useEffect(() => {
+    inputRef.current.focus()
+  })
 
   const handleSubmit = e => {
     e.preventDefault()
 
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
-      text: input // user input
+      text: input, // user input
+      quantity: 1
     })
     
   }
@@ -19,16 +26,17 @@ function Form(props) {
   }
 
   return (
-    <form className="todo-form" onSubmit={handleSubmit}>
+    <form className="grocery-form" onSubmit={handleSubmit}>
       <input 
         type="text"
         placeholder="Add an item"
         value={input} 
         name='text'
-        className='todo-input'
+        className='grocery-input'
         onChange={handleChange}
+        ref={inputRef}
       />
-      <button className='todo-button'>Add</button>
+      <button className='item-button'>Add</button>
     </form>
   )
 }
