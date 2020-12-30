@@ -8,7 +8,7 @@ function Item({ items, completeItem, removeItem }) {
     value: ''
   })
 
-  return items.map((item, index) => {
+  return items.map((item, index) => (
     <div className={item.isComplete ? 'todo-row complete' : 'todo-row'}
       key={index}
     >
@@ -26,7 +26,7 @@ function Item({ items, completeItem, removeItem }) {
         />
       </div>
     </div>
-  })
+  ))
 }
 
 export default Item

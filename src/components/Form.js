@@ -22,7 +22,7 @@ function Form(props) {
     <form className="todo-form" onSubmit={handleSubmit}>
       <input 
         type="text"
-        placeholder="Add a todo"
+        placeholder="Add an item"
         value={input} 
         name='text'
         className='todo-input'

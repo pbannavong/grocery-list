@@ -40,7 +40,7 @@ function List() {
       <Item 
         items={items} 
         completeItems={completeItem} 
-        removeitem={removeItem} 
+        removeItem={removeItem} 
       /> 
     </div>
   )
