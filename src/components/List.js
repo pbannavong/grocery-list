@@ -4,12 +4,14 @@ import Item from './Item'
 
 function List() {
   const [items, setItems] = useState([])
-  const [totalItemCount, setTotalItemCount] = useState(1)
+  const [totalItemCount, setTotalItemCount] = useState(0)
 
   const calculateTotal = () => {
     const totalCount = items.reduce((total, item) => {
       return total + item.quantity
     }, 0)
+
+    setTotalItemCount(totalCount)
   }
   
   const handleAddQuantity = (index) => {
@@ -37,8 +39,9 @@ function List() {
     }
 
     const newItems = [item, ...items]
-    console.log(item, ...items);
+    // console.log(item, ...items);
     setItems(newItems)
+    setTotalItemCount(totalItemCount + 1)
   }
 
   const removeItem = id => {
@@ -55,24 +58,11 @@ function List() {
     setItems(prev => prev.map(item => (item.id === id ? updatedItem : item)))
   }
 
-  const completeItem = id => {
-    let updatedItems = items.map(item => {
-      if (item.id === id) {
-        item.isComplete = !item.isComplete
-      }
-
-      return item
-    })
-    
-    setItems(updatedItems)
-  }
-
   return (
     <div>
       <h1>Grocery List</h1>
       <Item 
         items={items} 
-        completeItems={completeItem} 
         removeItem={removeItem}
         editItem={editItem}
         handleAddQuantity={handleAddQuantity}

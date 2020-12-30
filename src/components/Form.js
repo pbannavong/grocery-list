@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 
 function Form(props) {
-  const [input, setInput] = useState('')
+  const [input, setInput] = useState(props.edit ? props.edit.value : '')
 
   // focus on input, prevent re-rendering of entire component on changes
   const inputRef = useRef(null)
@@ -18,7 +18,8 @@ function Form(props) {
       text: input, // user input
       quantity: 1
     })
-    
+
+    setInput('')
   }
 
   const handleChange = e => {

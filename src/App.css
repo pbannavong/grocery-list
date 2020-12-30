@@ -1,10 +1,16 @@
+@font-face {
+  font-family: "fakereceipt";
+  src: url("./fonts/fakereceipt.ttf");
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
 }
+
 
 body {
   background: linear-gradient(
@@ -12,6 +18,7 @@ body {
     rgba(48, 16, 255, 1) 0%,
     rgba(100, 115, 255, 1) 100%
   );
+  font-family: 'fakereceipt';
 }
 
 button {
@@ -52,7 +59,7 @@ h1 {
   outline: none;
   width: 320px;
   background: transparent;
-  color: #fff;
+  color: grey;
 }
 
 .grocery-input::placeholder {

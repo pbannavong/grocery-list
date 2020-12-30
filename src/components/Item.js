@@ -4,7 +4,7 @@ import { TiEdit } from 'react-icons/ti'
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from 'react-icons/ai'
 import Form from './Form'
 
-function Item({ items, completeItem, removeItem, editItem, handleAddQuantity, handleMinusQuantity }) {
+function Item({ items, removeItem, editItem, handleAddQuantity, handleMinusQuantity }) {
   const [edit, setEdit] = useState({
     id: null, 
     value: ''
@@ -19,12 +19,13 @@ function Item({ items, completeItem, removeItem, editItem, handleAddQuantity, ha
 
   }
 
+  // if edit != null -> user edited entry
   if (edit.id) {
     return <Form edit={edit} onSubmit={submitUpdate} />
   }
 
   return items.map((item, index) => (
-    <div className={item.isComplete ? 'todo-row complete' : 'item-row'}
+    <div className='item-row'
       key={index}
     >
       <div className="quantity">
@@ -36,18 +37,19 @@ function Item({ items, completeItem, removeItem, editItem, handleAddQuantity, ha
           <AiOutlineMinusCircle />
         </button>
       </div>
-      <div key={item.id} onClick={() => completeItem(item.id)}>
+      <div key={item.id}>
         {item.text}
       </div>
       <div className="icons">
-        <RiCloseCircleLine 
-          onClick={() => removeItem(item.id)}
-          className='delete-icon'
-        />
         <TiEdit 
           onClick={() => setEdit({ id: item.id, value: item.text })}
           className='edit-icon'
         />
+        <RiCloseCircleLine 
+          onClick={() => removeItem(item.id)}
+          className='delete-icon'
+        />
+
       </div>
     </div>
   ))
