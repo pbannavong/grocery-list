@@ -30,11 +30,11 @@ function Item({ items, removeItem, editItem, handleAddQuantity, handleMinusQuant
     >
       <div className="quantity">
         <button onClick={() => handleAddQuantity(index)}>
-          <AiOutlinePlusCircle />
+          <AiOutlinePlusCircle size={16} />
         </button>
         <span>{item.quantity}</span>
         <button onClick={() => handleMinusQuantity(index)}>
-          <AiOutlineMinusCircle />
+          <AiOutlineMinusCircle size={16} />
         </button>
       </div>
       <div key={item.id}>

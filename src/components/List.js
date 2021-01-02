@@ -61,6 +61,12 @@ function List() {
   return (
     <div>
       <h1>Grocery List</h1>
+      <div className="list-heading">
+        <div>QUANTITY</div>
+        <div>ITEM</div>
+        <div>EDIT/DEL.</div>
+      </div>
+      <hr className="line"/>
       <Item 
         items={items} 
         removeItem={removeItem}
