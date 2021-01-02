@@ -13,11 +13,7 @@
 
 
 body {
-  background: linear-gradient(
-    90deg,
-    rgba(48, 16, 255, 1) 0%,
-    rgba(100, 115, 255, 1) 100%
-  );
+  background: gray;
   font-family: 'fakereceipt';
 }
 
@@ -44,8 +40,9 @@ hr.line {
   color: black;
   text-align: center;
   margin: 128px auto;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   padding-bottom: 32px;
+  
 }
 
 h1 {
@@ -134,4 +131,55 @@ h1 {
   width: 90%;
   margin: auto;
   padding: 0.5rem;
+}
+
+
+.jagged-border {
+  position: relative;
+  /* width: 100%; */
+  height:50px;
+  filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 1px 2px);
+
+}
+.main-container:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -10px;
+  width: 100%;
+  height: 10px;
+  background:
+  linear-gradient(
+    45deg, transparent 33.333%,
+    #fff 33.333%, #fff 66.667%,
+    transparent 66.667%
+  ),
+  linear-gradient(
+    -45deg, transparent 33.333%,
+    #fff 33.333%, #fff 66.667%,
+    transparent 66.667%
+  );
+  background-size: 20px 40px; 
+}
+
+.main-container:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -10px;
+  width: 100%;
+  height: 10px;
+  background:
+  linear-gradient(
+    45deg, transparent 33.333%,
+    #fff 33.333%, #fff 66.667%,
+    transparent 66.667%
+  ),
+  linear-gradient(
+    -45deg, transparent 33.333%,
+    #fff 33.333%, #fff 66.667%,
+    transparent 66.667%
+  );
+  background-size: 20px 40px;
+  transform: rotate(180deg);
 }

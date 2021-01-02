@@ -3,9 +3,13 @@ import List from './components/List';
 
 function App() {
   return (
-    <div className="main-container">
-      <List />
-    </div>
+      <>
+
+          <div className="main-container jagged-border">
+            <List />
+          </div>
+
+    </>
   );
 }
 
