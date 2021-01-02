@@ -118,6 +118,7 @@ h1 {
   color: black;
   min-width: 70px;
   justify-content: space-between;
+  padding: 1px;
 }
 
 .total {

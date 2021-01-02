@@ -30,11 +30,11 @@ function Item({ items, removeItem, editItem, handleAddQuantity, handleMinusQuant
     >
       <div className="quantity">
         <button onClick={() => handleAddQuantity(index)}>
-          <AiOutlinePlusCircle size={16} />
+          <AiOutlinePlusCircle size={20} />
         </button>
         <span>{item.quantity}</span>
         <button onClick={() => handleMinusQuantity(index)}>
-          <AiOutlineMinusCircle size={16} />
+          <AiOutlineMinusCircle size={20} />
         </button>
       </div>
       <div key={item.id}>
@@ -44,10 +44,12 @@ function Item({ items, removeItem, editItem, handleAddQuantity, handleMinusQuant
         <TiEdit 
           onClick={() => setEdit({ id: item.id, value: item.text })}
           className='edit-icon'
+          size={26}
         />
         <RiCloseCircleLine 
           onClick={() => removeItem(item.id)}
           className='delete-icon'
+          size={26}
         />
 
       </div>
